@@ -1,0 +1,21 @@
+html {
+	font-size: 62.5%; /* Reset para rem. 62.5% = 10px de 16ps */
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	display: grid;
+	grid-template-rows: 1fr;
+	font-family: sans-serif;
+	font-size: 1.6rem;
+}
+
+img {
+	max-width: 100%;
+}
