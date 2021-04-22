@@ -106,8 +106,11 @@ class Background {
 	}
 
 	loop(timestamp) {
+		if ((timestamp - lastRender) < 30) {
+			window.requestAnimationFrame(this.loop.bind(this));
+			return;
+		}
 		var progress = timestamp - lastRender;
-
 		this.update(progress)
 		this.draw();
 
@@ -155,7 +158,7 @@ var numdots = container.offsetWidth / 14;
 var joinsradius = container.offsetHeight / 7;
 background.create_dots(numdots);
 background.create_joins(joinsradius, 2);
-//background.draw();
+background.draw();
 window.onresize = fix_background_size;
 window.requestAnimationFrame(background.loop.bind(background));
 

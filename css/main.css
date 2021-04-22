@@ -25,6 +25,16 @@ a {
 	text-decoration: none;
 }
 
+.hover-to-show { 
+	opacity: 0;
+	transition: all .2s ease-in-out;
+}
+
+.hover-to-show-link:hover .hover-to-show {
+	opacity: 1;
+	transition: all .2s ease-in-out;
+}
+
 /* Header */
 .site-header {
 	height: 100vh;
@@ -88,4 +98,62 @@ a {
 
 #canvas-container {
 	flex-grow: 1;
+}
+
+/* Secciones */
+.contenedor {
+	min-height: 50vh;
+	width: 80%;
+	margin: 3rem auto;
+}
+
+#proyectos {
+	background: linear-gradient(#025373, #0388A6);
+}
+
+.encabezado {
+	color: white;
+	text-align: center;
+}
+
+.catalogo {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.proyecto {
+	background: url(../imgs/seminuevos.png);
+	background-position: center top;
+	background-size: cover;
+	position: relative;
+	width: 100%;
+	min-height: 20rem;
+	color: white;
+}
+
+.proyecto:hover {
+	cursor: pointer;
+}
+
+.proyecto h4 {
+	margin: 0 0 1rem 0;
+}
+
+.proyecto p {
+	margin: 0;
+	font-weight: 100;
+	font-size: 1.4rem;
+}
+
+.descripcion-proyecto {
+	padding: 1rem;
+	background-color: #011826EE;
+	position: absolute;
+	bottom: 0;
+}
+
+#contacto {
+	background: linear-gradient(#0388A6, #012840);
+	color: white;
 }
