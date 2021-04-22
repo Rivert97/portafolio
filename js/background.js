@@ -1,17 +1,37 @@
+(function() {
+	var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+	                            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+	window.requestAnimationFrame = requestAnimationFrame;
+})();
+
 class Dot {
 	constructor(x, y, radius, color) {
 		this.x = x;
 		this.y = y;
 		this.r = radius;
 		this.color = color;
+		this.speedx = Background.getRandomInt(-10, 10);
+		this.speedy = Background.getRandomInt(-10, 10);
 	}
 
 	draw(context) {
+		if (context.fillStyle != this.color) {
+			context.fillStyle = this.color;
+		}
 		context.beginPath();
 		context.arc(this.x, this.y, this.r, Math.PI*2, false);
 		context.fillStyle = this.color;
 		context.fill();
 		context.closePath();
+	}
+
+	update(deltaTime) {
+		this.x += this.speedx * deltaTime/1000;
+		this.y += this.speedy * deltaTime/1000;
+		if (Background.getRandomInt(0, 100) < 1) {
+			this.speedx = Background.getRandomInt(-10, 10);
+			this.speedy = Background.getRandomInt(-10, 10);
+		}
 	}
 
 	distance(dot) {
@@ -26,11 +46,13 @@ class Join {
 	}
 
 	draw(context) {
+		if (context.strokeStyle != "#0388A6") {
+			context.strokeStyle = "#0388A6";
+			context.lineWidth = 1;
+		}
 		context.beginPath();
 		context.moveTo(this.dot1.x, this.dot1.y);
 		context.lineTo(this.dot2.x, this.dot2.y);
-		context.strokeStyle = "white";
-		context.lineWidth = 1;
 		context.stroke(); 
 	}
 }
@@ -52,7 +74,7 @@ class Background {
 		for (var i = 0; i < num; i++) {
 			var x = Background.getRandomInt(0, this.width);
 			var y = Background.getRandomInt(0, this.height);
-			this.dots.push(new Dot(x, y, 3, "white"));
+			this.dots.push(new Dot(x, y, 3, "#0388A6"));
 		}
 	}
 
@@ -75,10 +97,34 @@ class Background {
 		}
 	}
 
+	clear_dots () {
+		this.dots = [];
+	}
+
+	clear_joins() {
+		this.joins = [];
+	}
+
+	loop(timestamp) {
+		var progress = timestamp - lastRender;
+
+		this.update(progress)
+		this.draw();
+
+		lastRender = timestamp;
+		window.requestAnimationFrame(this.loop.bind(this));
+	}
+
 	draw() {
 		this.clean();
 		this.dots.forEach(element => element.draw(this.ctx));
 		this.joins.forEach(element => element.draw(this.ctx));
+	}
+
+	update(deltaTime) {
+		for (var i = 0; i < this.dots.length; i++) {
+			this.dots[i].update(deltaTime);
+		}
 	}
 
 	clean () {
@@ -102,16 +148,26 @@ class Background {
 	}
 }
 
+var lastRender = 0;
 const container = document.getElementById("canvas-container");
 var background = new Background("game", container.offsetWidth, container.offsetHeight);
-background.create_dots(50);
-background.create_joins(100, 2);
-background.draw();
+var numdots = container.offsetWidth / 14;
+var joinsradius = container.offsetHeight / 7;
+background.create_dots(numdots);
+background.create_joins(joinsradius, 2);
+//background.draw();
 window.onresize = fix_background_size;
+window.requestAnimationFrame(background.loop.bind(background));
 
 function fix_background_size() {
+	background.clear_dots();
+	background.clear_joins();
 	background.set_size(0,0);
 	const container = document.getElementById("canvas-container");
 	background.set_size(container.offsetWidth, container.offsetHeight);
+	var numdots = container.offsetWidth / 14;
+	var joinsradius = container.offsetHeight / 7;
+	background.create_dots(numdots);
+	background.create_joins(joinsradius, 2);
 	background.draw();
 }
