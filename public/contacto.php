@@ -3,7 +3,9 @@ $data = array();
 $flgerror = True;
 if (!empty($_POST['name'])
 	&& !empty($_POST['mailphone'])
-	&& !empty($_POST['message'])) {
+	&& !empty($_POST['message'])
+	&& !empty($_POST['g-recaptcha-response'])
+	&& verify_captcha()) {
 	$name = htmlspecialchars(strip_tags($_POST['name']));
 	$mailphone = htmlspecialchars(strip_tags($_POST['mailphone']));
 	$message = htmlspecialchars(strip_tags($_POST['message']));
@@ -32,6 +34,32 @@ if ($flgerror) {
 } else {
 	$html_mensaje = "<h2>¡Gracias por tu mensaje!</h2>" .
 					"<p>Me pondré en contacto lo más rápido posible.</br>No olvides revisar tu bandeja de Spam.</p>";
+}
+
+function verify_captcha() {
+	require_once '../conf/captcha.php';
+	$url = "https://www.google.com/recaptcha/api/siteverify";
+	$data = array('secret' => $secret_key, 'response' => $_POST['g-recaptcha-response']);
+
+	$options = array(
+		'http' => array(
+			'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+			'method'  => 'POST',
+			'content' => http_build_query($data)
+		)
+	);
+	$context  = stream_context_create($options);
+	$result = file_get_contents($url, false, $context);
+	if ($result === FALSE) {
+		return False;
+	} else {
+		$response = json_decode($result);
+		if ($response['success']) {
+			return True;
+		} else {
+			return False;
+		}
+	}
 }
 ?>
 <html lang="es">

@@ -78,6 +78,9 @@
 						<textarea id="message" name="message" placeholder="Dime que tienes en mente..." required></textarea>
 					</div>
 					<div>
+						<div class="g-recaptcha" data-sitekey="your_site_key"></div>
+					</div>
+					<div>
 						<input type="submit" name="send" value="Enviar"/>
 					</div>
 				</form>
@@ -87,5 +90,6 @@
 		<footer>
 		</footer>
 		<script type="text/javascript" src="js/background.js"></script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</body>
 </html>
