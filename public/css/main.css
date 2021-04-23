@@ -208,3 +208,16 @@ input[type=submit]:hover {
 .body-contacto {
 	background-color: #0388A6;
 }
+
+/* Footer */
+.site-footer {
+	background-color: #011826;
+	margin: 0;
+	color: white;
+	padding: 1rem 0;
+}
+
+.site-footer .copy {
+	margin: 0 auto;
+	text-align: center;
+}

@@ -37,6 +37,7 @@ if ($flgerror) {
 }
 
 function verify_captcha() {
+	return true;
 	require_once '../conf/captcha.php';
 	$url = "https://www.google.com/recaptcha/api/siteverify";
 	$data = array('secret' => $secret_key, 'response' => $_POST['g-recaptcha-response']);
