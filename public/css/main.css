@@ -51,6 +51,10 @@ a {
 	justify-content: space-between;
 }
 
+.barra.contacto{
+	background-color: #012840;
+}
+
 .logo {
 	padding: 1rem;
 	color: white;
@@ -107,13 +111,14 @@ a {
 	margin: 3rem auto;
 }
 
-#proyectos {
-	background: linear-gradient(#025373, #0388A6);
-}
-
 .encabezado {
 	color: white;
 	text-align: center;
+}
+
+/* Proyectos */
+#proyectos {
+	background: linear-gradient(#025373, #0388A6);
 }
 
 .catalogo {
@@ -153,7 +158,53 @@ a {
 	bottom: 0;
 }
 
+/* Contacto */
+
 #contacto {
 	background: linear-gradient(#0388A6, #012840);
 	color: white;
+}
+
+.form-contacto {
+	max-width: 70rem;
+	margin: 0 auto;
+}
+
+.form-contacto div {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-contacto div label {
+	margin: 0.2rem 0;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea {
+	-webkit-border-radius: 0.5rem;
+	-moz-border-radius: 0.5rem;
+	border-radius: 0.5rem;
+	border: 1px solid #AAAAAA;
+	padding: 0.7rem;
+}
+
+input[type=submit] {
+	background: #0388A6;
+	color: white;
+	border: 1px solid #0388A6;
+	margin-top: 2rem;
+	width: 100%;
+	padding: 0.7rem 0;
+	font-size: 1.6rem;
+	font-weight: 700;
+}
+
+input[type=submit]:hover {
+	cursor: pointer;
+}
+
+.body-contacto {
+	background-color: #0388A6;
 }

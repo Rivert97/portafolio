@@ -19,6 +19,9 @@
 					</div>
 					<div class="navegacion">
 						<div>
+							<a href="#">Inicio</a>
+						</div>
+						<div>
 							<a href="#proyectos">Proyectos</a>
 						</div>
 						<div>
@@ -57,9 +60,27 @@
 
 		<section id="contacto">
 			<div class="contenedor">
-				<h2>Cont&aacute;ctame</h2>
-				<p>Si tienes una idea que desees poner en marcha o buscas una solución que ayude a expandir tu negocio a internet contáctame</p>
-				<p>contacto@rgarciag.com</p>
+				<div class="encabezado">
+					<h2>Cont&aacute;ctame</h2>
+					<p>Si tienes una idea que desees poner en marcha o buscas una solución que ayude a expandir tu negocio a internet contáctame</p>
+				</div>
+				<form class="form-contacto" action="contacto.php" method="POST">
+					<div>
+						<label for="name">Nombre:</label>
+						<input type="text" id="name" name="name" required/>
+					</div>
+					<div>
+						<label for="mailphone">Correo o Tel&eacute;fono:</label>
+						<input type="text" id="mailphone" name="mailphone" required/>
+					</div>
+					<div>
+						<label for="message">Mensaje:</label>
+						<textarea id="message" name="message" placeholder="Dime que tienes en mente..." required></textarea>
+					</div>
+					<div>
+						<input type="submit" name="send" value="Enviar"/>
+					</div>
+				</form>
 			</div>
 		</section>
 
