@@ -1,39 +1,30 @@
 <?php
+include "../objects/DB.php";
+include "../objects/Message.php";
+
 $data = array();
-$flgerror = True;
+$flgok = False;
 if (!empty($_POST['name'])
 	&& !empty($_POST['mailphone'])
 	&& !empty($_POST['message'])
-	&& !empty($_POST['g-recaptcha-response'])
 	&& verify_captcha()) {
-	$name = htmlspecialchars(strip_tags($_POST['name']));
-	$mailphone = htmlspecialchars(strip_tags($_POST['mailphone']));
-	$message = htmlspecialchars(strip_tags($_POST['message']));
-	require_once '../conf/db.php';
-	try {
-		$options = array(
-			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-		);
-		$dsn = "mysql:host=localhost;dbname=$dbname";
-		$db = new PDO($dsn, $user, $password, $options);
-		$stmt = $db->prepare("INSERT INTO messages (name, mailphone, message) VALUES (:name, :mailphone, :message)");
-		$stmt->bindParam(":name", $name);
-		$stmt->bindParam(":mailphone", $mailphone);
-		$stmt->bindParam(":message", $message);
-		if ($stmt->execute()) {
-			$flgerror = False;
-		}
-	} catch (PDOException $e){
-		error_log($e->getMessage());
+	$db = new DB();
+	$conn = $db->get_connection();
+	if ($conn != null) {
+		$message = new Message($conn);
+		$message->set_name($_POST['name']);
+		$message->set_mailphone($_POST['mailphone']);
+		$message->set_message($_POST['message']);
+		$flgok = $message->save();
 	}
-
 }
-if ($flgerror) {
-	$html_mensaje = "<h2>Hubo un error al enviar el mensaje</h2>" .
-					"<p>Por favor, int&eacute;ntalo m&aacute;s tarde.</p>";
-} else {
+
+if ($flgok) {
 	$html_mensaje = "<h2>¡Gracias por tu mensaje!</h2>" .
 					"<p>Me pondré en contacto lo más rápido posible.</br>No olvides revisar tu bandeja de Spam.</p>";
+} else {
+	$html_mensaje = "<h2>Hubo un error al enviar el mensaje</h2>" .
+					"<p>Por favor, int&eacute;ntalo m&aacute;s tarde.</br>O env&iacute;ame un mensaje a contacto@rgarciag.com</p>";
 }
 
 function verify_captcha() {
@@ -82,16 +73,16 @@ function verify_captcha() {
 				</div>
 				<div class="navegacion">
 					<div>
-						<a href="/portafolio/">Inicio</a>
+						<a href="/">Inicio</a>
 					</div>
 					<div>
-						<a href="/portafolio/#proyectos">Proyectos</a>
+						<a href="/#proyectos">Proyectos</a>
 					</div>
 					<div>
-						<a href="/portafolio/#contacto">Contacto</a>
+						<a href="/#contacto">Contacto</a>
 					</div>
 					<div>
-						<a href="/portafolio/">Blog</a>
+						<a href="/">Blog</a>
 					</div>
 				</div>
 			</div>
