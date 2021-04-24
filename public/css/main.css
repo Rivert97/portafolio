@@ -51,15 +51,28 @@ a {
 	justify-content: space-between;
 }
 
+@media screen and (max-width: 720px) {
+	.barra {
+		justify-content: end;
+	}
+}
+
 .barra.contacto{
 	background-color: #012840;
 }
 
 .logo {
-	padding: 1rem;
+	display: block;
 	color: white;
+	padding: 1.5rem 1rem;
 	font-weight: 700;
 	font-size: 2rem;
+}
+
+@media screen and (max-width: 720px) {
+	.logo {
+		display: none;
+	}
 }
 
 .navegacion {
@@ -67,7 +80,7 @@ a {
 }
 
 .navegacion div {
-	padding: 1rem;
+	padding: 1.5rem 1rem;
 }
 
 .navegacion div:hover {
@@ -128,17 +141,9 @@ a {
 }
 
 .proyecto {
-	background: url(../imgs/seminuevos.png);
-	background-position: center top;
-	background-size: cover;
 	position: relative;
 	width: 100%;
-	min-height: 20rem;
 	color: white;
-}
-
-.proyecto:hover {
-	cursor: pointer;
 }
 
 .proyecto h4 {
@@ -147,8 +152,22 @@ a {
 
 .proyecto p {
 	margin: 0;
+	margin-bottom: 1rem;
 	font-weight: 100;
 	font-size: 1.4rem;
+}
+
+.contenedor-preview {
+	overflow: hidden;
+	max-height: 30rem;
+}
+
+.contenedor-preview img {
+	top:-100%;
+	left:0;
+	right: 0;
+	bottom: -100%;
+	margin: auto;
 }
 
 .descripcion-proyecto {
@@ -156,6 +175,19 @@ a {
 	background-color: #011826EE;
 	position: absolute;
 	bottom: 0;
+}
+
+.descripcion-proyecto a {
+	display: inline-block;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0.5rem;
+	color: white;
+	-webkit-border-radius: 0.5rem;
+	-moz-border-radius: 0.5rem;
+	border-radius: 0.5rem;
+	border: 1px solid white;
 }
 
 /* Contacto */
