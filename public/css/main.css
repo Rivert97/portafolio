@@ -193,6 +193,11 @@ img {
 	border: 1px solid white;
 }
 
+.descripcion-proyecto a:hover {
+	color: #44E1F2;
+	border: 1px solid #44E1F2;
+}
+
 /* Contacto */
 
 #contacto {
@@ -272,8 +277,12 @@ input[type=submit]:hover {
 }
 
 .disclaimer a {
-	color: white !important;
 	text-decoration: none;
+	color: white;
+}
+
+.disclaimer a:hover {
+	color: #44E1F2;
 }
 
 /* Acuerdo de privacidad */
