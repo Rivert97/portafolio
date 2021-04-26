@@ -38,7 +38,7 @@ img {
 	flex-direction: column;
 }
 
-.barra {
+.barra-inicio {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -47,8 +47,14 @@ img {
 	justify-content: space-between;
 }
 
+.barra {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
 @media screen and (max-width: 720px) {
-	.barra {
+	.barra-inicio {
 		justify-content: end;
 	}
 }
@@ -242,16 +248,6 @@ input[type=submit]:hover {
 	background-color: #0388A6;
 }
 
-.disclaimer {
-	font-size: 1.4rem;
-	margin: 0;
-}
-
-.disclaimer a {
-	color: white;
-	text-decoration: none;
-}
-
 /* Footer */
 .site-footer {
 	background-color: #011826;
@@ -260,13 +256,34 @@ input[type=submit]:hover {
 	padding: 1rem 0;
 }
 
-.site-footer .copy {
+.copy {
 	margin: 0 auto;
+	padding: 0;
 	text-align: center;
 }
 
+.copy p {
+	margin: 0.5rem;
+}
+
+.disclaimer {
+	font-size: 1.4rem;
+	margin: 0;
+}
+
+.disclaimer a {
+	color: white !important;
+	text-decoration: none;
+}
+
 /* Acuerdo de privacidad */
+.aviso {
+	min-height: 80vh;
+	width: 100%;
+}
+
 .texto {
+	margin: auto;
 	padding: 1rem;
 	width: 80%;
 	background-color: white;

@@ -67,5 +67,11 @@ if ($flgok) {
 					<?php echo $html_mensaje;?>
 			</div>
 		</main>
+		<footer class="site-footer">
+			<div class="copy">
+				<p>&#169; Copyright 2021 - Roberto Garc&iacute;a</p>
+				<p class="disclaimer"><a href="aviso.html">Aviso de Privacidad</a></p>
+			</div>
+		</footer>
 	</body>
 </html>
