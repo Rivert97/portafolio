@@ -21,10 +21,6 @@ img {
 }
 
 /* Globales */
-a {
-	text-decoration: none;
-}
-
 .hover-to-show { 
 	opacity: 0;
 	transition: all .2s ease-in-out;
@@ -178,6 +174,7 @@ a {
 }
 
 .descripcion-proyecto a {
+	text-decoration: none;
 	display: inline-block;
 	position: relative;
 	left: 50%;
@@ -222,6 +219,10 @@ textarea {
 	padding: 0.7rem;
 }
 
+#message {
+	height: 13rem;
+}
+
 input[type=submit] {
 	background: #0388A6;
 	color: white;
@@ -241,6 +242,16 @@ input[type=submit]:hover {
 	background-color: #0388A6;
 }
 
+.disclaimer {
+	font-size: 1.4rem;
+	margin: 0;
+}
+
+.disclaimer a {
+	color: white;
+	text-decoration: none;
+}
+
 /* Footer */
 .site-footer {
 	background-color: #011826;
@@ -251,5 +262,18 @@ input[type=submit]:hover {
 
 .site-footer .copy {
 	margin: 0 auto;
+	text-align: center;
+}
+
+/* Acuerdo de privacidad */
+.texto {
+	padding: 1rem;
+	width: 80%;
+	background-color: white;
+	color: black !important;
+	font-family: Arial;
+}
+
+.texto h2 {
 	text-align: center;
 }

@@ -6,9 +6,7 @@ $data = array();
 $flgok = False;
 if (!empty($_POST['name'])
 	&& !empty($_POST['mailphone'])
-	&& !empty($_POST['message'])
-	&& !empty($_POST['g-recaptcha-response'])
-	&& verify_captcha()) {
+	&& !empty($_POST['message'])) {
 	$db = new DB();
 	$conn = $db->get_connection();
 	if ($conn != null) {
@@ -28,32 +26,6 @@ if ($flgok) {
 					"<p>Por favor, int&eacute;ntalo m&aacute;s tarde.</br>O env&iacute;ame un mensaje a contacto@rgarciag.com</p>";
 }
 
-function verify_captcha() {
-	require_once '../conf/captcha.php';
-	$url = "https://www.google.com/recaptcha/api/siteverify";
-	$data = array('secret' => $secret_key, 'response' => $_POST['g-recaptcha-response']);
-
-	$options = array(
-		'http' => array(
-			'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-			'method'  => 'POST',
-			'content' => http_build_query($data)
-		)
-	);
-	$context  = stream_context_create($options);
-	$result = file_get_contents($url, false, $context);
-	error_log($result);
-	if ($result === FALSE) {
-		return False;
-	} else {
-		$response = json_decode($result);
-		if ($response->success) {
-			return True;
-		} else {
-			return False;
-		}
-	}
-}
 ?>
 <html lang="es">
     <head>
