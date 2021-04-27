@@ -1,0 +1,8 @@
+<?php
+$username = "USERNAME";
+$password = "PASSWORD";
+$from = "FROM";
+$fromName = "FROM_NAME";
+$notificationsEmail = "NOTIF_EMAIL";
+$notificationsName = "NOTIF_EMAIL";
+?>
