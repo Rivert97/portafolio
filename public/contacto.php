@@ -65,6 +65,7 @@ if ($flgok) {
 			<div class="contenedor">
 				<div class="encabezado">
 					<?php echo $html_mensaje;?>
+				</div>
 			</div>
 		</main>
 		<footer class="site-footer">
