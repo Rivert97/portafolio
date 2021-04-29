@@ -36,14 +36,16 @@ function verify_captcha() {
 
 	$options = array(
 		'http' => array(
-			'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+			'header'  => array(
+				"Content-type: application/x-www-form-urlencoded\r\n",
+				"User-Agent:MyAgent/1.0\r\n",
+				),
 			'method'  => 'POST',
 			'content' => http_build_query($data)
 		)
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
-	error_log("JSON: " . $result);
 	if ($result === FALSE) {
 		return False;
 	} else {
