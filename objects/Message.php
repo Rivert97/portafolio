@@ -58,27 +58,24 @@ class Message {
 	}
 
 	public function send_email() {
-        require_once '../conf/email.php';
+        require_once '../conf/mail.php';
 		$mail = new PHPMailer();
 		$mail->IsSMTP();
-		$mail->SMTPDebug = SMTP::DEBUG_SERVER;
+		$mail->SMTPDebug = 0;
 		$mail->Host = "smtp.gmail.com";
-		$mail->Port = 587;
-		$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-		$mail->SMTPAuth = True;
+		$mail->Port = 465;
+		$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+		$mail->SMTPAuth = true;
 		$mail->Username = $username;
 		$mail->Password = $password;
 		$mail->SetFrom($username, $fromName);
 		$mail->AddAddress($notificationsEmail, $notificationsName);
-		$mail->Subject = "Test is Test Email sent via Gmail SMTP Server using PHP Mailer";
+		$mail->Subject = "Mensaje en rgarciag.com";
 		$mail->IsHTML(true);
-		$content = "<b>This is a Test Email sent via Gmail SMTP Server using PHP mailer class.</b>";
+		$content = "<b>Mensaje recibido</b><ul><li>Nombre: " . $this->name . "</li><li>Coreo/Telefono: " . $this->mailphone . "</li><li>Mensaje: " . $this->message . "</li></ul>";
 		$mail->MsgHTML($content);
 		if (!$mail->Send()) {
-			echo "Error while sending Email.";
-			var_dump($mail);
-		} else {
-			echo "Email sent successfully";
+			error_log("Se intentó enviar un mensaje pero fallo");
 		}
 	}
 }

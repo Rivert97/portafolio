@@ -70,7 +70,7 @@
 					<h2>Cont&aacute;ctame</h2>
 					<p>Si tienes una idea que quieras poner en marcha o buscas una solución que ayude a expandir tu negocio a internet contáctame</p>
 				</div>
-				<form class="form-contacto" action="contacto.php" method="POST">
+				<form id="form-contacto" class="form-contacto" action="contacto.php" method="POST">
 					<div>
 						<label for="name">Nombre:</label>
 						<input type="text" id="name" name="name" required/>
@@ -84,7 +84,7 @@
 						<textarea id="message" name="message" placeholder="Dime que tienes en mente..." required></textarea>
 					</div>
 					<div>
-						<input type="submit" id="send" name="send" value="Enviar"/>
+						<button class="g-recaptcha" data-sitekey="6LdPVr8aAAAAAPNOtKsfUVYj6H03ull6Q5x7RUY7" data-callback="onSubmit" data-action="submit">Enviar</button>
 					</div>
 				</form>
 				<div class="encabezado">
@@ -99,6 +99,8 @@
 				<p class="disclaimer"><a href="aviso.html">Aviso de Privacidad</a></p>
 			</div>
 		</footer>
+		<script src="https://www.google.com/recaptcha/api.js"></script>
 		<script type="text/javascript" src="js/background.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
