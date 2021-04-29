@@ -66,10 +66,10 @@ class Message {
 		$mail->Port = 587;
 		$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 		$mail->SMTPAuth = True;
-		$mail->Username = "rgarciag.contacto@gmail.com";
-		$mail->Password = "Huevonivia97";
-		$mail->SetFrom("rgarciag.contacto@gmail.com", "Roberto Garcia");
-		$mail->AddAddress("betogarcia97@live.com.mx", "Roberto Garcia");
+		$mail->Username = $username;
+		$mail->Password = $password;
+		$mail->SetFrom($username, $fromName);
+		$mail->AddAddress($notificationsEmail, $notificationsName);
 		$mail->Subject = "Test is Test Email sent via Gmail SMTP Server using PHP Mailer";
 		$mail->IsHTML(true);
 		$content = "<b>This is a Test Email sent via Gmail SMTP Server using PHP mailer class.</b>";
