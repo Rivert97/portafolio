@@ -38,7 +38,6 @@ function verify_captcha() {
 		'http' => array(
 			'header'  => array(
 				"Content-type: application/x-www-form-urlencoded\r\n",
-				"User-Agent:MyAgent/1.0\r\n",
 				),
 			'method'  => 'POST',
 			'content' => http_build_query($data)
@@ -46,11 +45,12 @@ function verify_captcha() {
 	);
 	$context  = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
+	
 	if ($result === FALSE) {
 		return False;
 	} else {
 		$response = json_decode($result);
-		if ($response->success) {
+		if ($response->success && $response->score >= 0.5) {
 			return True;
 		} else {
 			return False;
