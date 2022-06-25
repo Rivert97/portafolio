@@ -137,8 +137,9 @@ a {
 	display: none;
 	position: absolute;
 	right: 0rem;
+	top: 5.6rem;
 	background-color: inherit;
-	width: 8rem;
+	width: 10rem;
 	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
 	padding: 0rem!important;
