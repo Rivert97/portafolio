@@ -101,6 +101,7 @@ a {
 }
 
 .titulo {
+	width: 75%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -123,6 +124,41 @@ a {
 	flex-grow: 1;
 }
 
+.dropdown .dropbtn {
+	padding: 0;
+	border: none;
+	outline: none;
+	background-color: inherit;
+	font-family: inherit; /* Important for vertical align on mobile phones */
+	margin: 0; /* Important for vertical align on mobile phones */
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	right: 0rem;
+	background-color: inherit;
+	width: 8rem;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	padding: 0rem!important;
+}
+
+.dropdown-content a {
+	padding: 0.5rem 1rem;
+	font-size: 1.5rem!important;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+}
+
 /* Secciones */
 .contenedor {
 	min-height: 50vh;
@@ -142,14 +178,17 @@ a {
 
 .catalogo {
 	width: 100%;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 5rem;
 }
 
 .proyecto {
+	margin: 0 auto;
 	position: relative;
 	width: 100%;
 	color: white;
+	max-width: 140rem;
 }
 
 .proyecto h4 {
@@ -159,7 +198,6 @@ a {
 .proyecto p {
 	margin: 0;
 	margin-bottom: 1rem;
-	font-weight: 100;
 	font-size: 1.4rem;
 }
 
