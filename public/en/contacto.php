@@ -22,11 +22,11 @@ if (!empty($_POST['name'])
 }
 
 if ($flgok) {
-	$html_mensaje = "<h2>¡Gracias por tu mensaje!</h2>" .
-					"<p>Me pondré en contacto lo más rápido posible.</br>No olvides revisar tu bandeja de Spam.</p>";
+	$html_mensaje = "<h2>Thanks for your message!</h2>" .
+					"<p>I'll be in touch as soon as possible.</br>Don't forget to check your spam inbox.</p>";
 } else {
-	$html_mensaje = "<h2>Hubo un error al enviar el mensaje</h2>" .
-					"<p>Por favor, int&eacute;ntalo m&aacute;s tarde.</br>O env&iacute;ame un mensaje a contacto@rgarciag.com</p>";
+	$html_mensaje = "<h2>An error occurred while trying to send your message</h2>" .
+					"<p>Please, try again later.</br>Or send me an email to contacto@rgarciag.com</p>";
 }
 
 function verify_captcha() {
@@ -67,7 +67,7 @@ function verify_captcha() {
 		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap" rel="stylesheet"> 
 		<link rel="stylesheet" href="css/main.css"/>
 
-		<title>Contacto</title>
+		<title>Contact</title>
 	</head>
 	<body class="body-contacto">
 		<header>
@@ -77,16 +77,16 @@ function verify_captcha() {
 				</div>
 				<div class="navegacion">
 					<div>
-						<a href="/">Inicio</a>
+						<a href="/">Home</a>
 					</div>
 					<div>
-						<a href="/#proyectos">Proyectos</a>
+						<a href="/#proyectos">Proyects</a>
 					</div>
 					<div>
-						<a href="/#contacto">Contacto</a>
+						<a href="/#contacto">Contact</a>
 					</div>
 					<div>
-						<a href="/">Blog</a>
+						<a href="http://wiki.rgarciag.com" target="_blank">Wiki</a>
 					</div>
 				</div>
 			</div>
@@ -101,7 +101,7 @@ function verify_captcha() {
 		</main>
 		<footer class="site-footer">
 			<div class="copy">
-				<p>&#169; Copyright 2021 - Roberto Garc&iacute;a</p>
+				<p>&#169; Copyright 2022 - Roberto Garc&iacute;a</p>
 				<p class="disclaimer"><a href="aviso.html">Aviso de Privacidad</a></p>
 			</div>
 		</footer>

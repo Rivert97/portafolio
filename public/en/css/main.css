@@ -20,6 +20,10 @@ img {
 	max-width: 100%;
 }
 
+a {
+	color: white;
+}
+
 /* Globales */
 .hover-to-show { 
 	opacity: 0;
