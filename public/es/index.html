@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:title" content="Desarrollo de Software">
+		<meta property="og:image" content="imgs/preview.png">
+		
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;400;700&display=swap" rel="stylesheet"> 
+		<link rel="stylesheet" href="css/main.css"/>
+
+		<title>Roberto Garc&iacute;a</title>
+	</head>
+	<body>
+		<header class="site-header">
+			<div id="canvas-container">
+				<div class="barra-inicio">
+					<div class="logo">
+						<span>Roberto Garc&iacute;a</span>
+					</div>
+					<div class="navegacion">
+						<a href="#">
+							<div>Inicio</div>
+						</a>
+						<a href="#proyectos">
+							<div>Proyectos</div>
+						</a>
+						<a href="#contacto">
+							<div>Contacto</div>
+						</a>
+						<a href="http://wiki.rgarciag.com" target="_blank">
+							<div>Wiki</div>
+						</a>
+					</div>
+				</div>
+				<canvas id="game">
+				</canvas>
+				<div class="titulo">
+					<h1>Hola! Soy Roberto...</h1>
+					<p>Desarrollador web de 24 a&ntilde;os y quiero ayudarte a poner tu negocio en la red</p>
+				</div>
+			</div>
+		</header>
+		
+		<main id="proyectos">
+			<div class="contenedor">
+				<div class="encabezado">
+					<h2>Proyectos</h2>
+					<p>Me especializo en desarrollo de Back-end e interfaces de usuario para aplicaciones que requieran guardar y acceder tus datos, productos o clientes de forma sencilla y segura.</p>
+				</div>
+				<div class="catalogo">
+					<div class="proyecto hover-to-show-link">
+						<div class="contenedor-preview">
+							<img src="imgs/seminuevos.png" alt="Pagina de Vehiculos seminuevos"/>
+						</div>
+						<div class="descripcion-proyecto hover-to-show">
+							<h4>Venta de Veh&iacute;culos Seminuevos</h4>
+							<p>En este demo podr&aacute;s explorar mi trabajo para crear una página de venta de autos. Lo que se muestra es una mera platilla, pero juntos podemos crear una p&aacute;gina personalizada para tu negocio.</p>
+							<a href="http://seminuevos.rgarciag.com" target="_blank">Ir a demo</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<section id="contacto">
+			<div class="contenedor">
+				<div class="encabezado">
+					<h2>Cont&aacute;ctame</h2>
+					<p>Si tienes una idea que quieras poner en marcha o buscas una solución que ayude a expandir tu negocio a internet contáctame</p>
+				</div>
+				<form id="form-contacto" class="form-contacto" action="contacto.php" method="POST">
+					<div>
+						<label for="name">Nombre:</label>
+						<input type="text" id="name" name="name" required/>
+					</div>
+					<div>
+						<label for="mailphone">Correo o Tel&eacute;fono:</label>
+						<input type="text" id="mailphone" name="mailphone" required/>
+					</div>
+					<div>
+						<label for="message">Mensaje:</label>
+						<textarea id="message" name="message" placeholder="Dime que tienes en mente..." required></textarea>
+					</div>
+					<div>
+						<button class="g-recaptcha" data-sitekey="6LdPVr8aAAAAAPNOtKsfUVYj6H03ull6Q5x7RUY7" data-callback="onSubmit" data-action="submit">Enviar</button>
+					</div>
+				</form>
+				<div class="encabezado">
+					<p>O envíame un mensaje a: contacto@rgarciag.com</p>
+				</div>
+			</div>
+		</section>
+
+		<footer class="site-footer">
+			<div class="copy">
+				<p>&#169; Copyright 2021 - Roberto Garc&iacute;a</p>
+				<p class="disclaimer"><a href="aviso.html">Aviso de Privacidad</a></p>
+			</div>
+		</footer>
+		<script src="https://www.google.com/recaptcha/api.js"></script>
+		<script type="text/javascript" src="js/background.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

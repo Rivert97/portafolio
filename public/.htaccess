@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    RewriteCond %{REQUEST_URI} !^/en
+    RewriteCond %{REQUEST_URI} !^/es
+    RewriteCond %{HTTP:Accept-Language} ^en [NC]
+    RewriteRule ^(.*) /en/$1 [L,R]
+
+    RewriteCond %{REQUEST_URI} !^/es
+    RewriteCond %{REQUEST_URI} !^/en
+    RewriteCond %{HTTP:Accept-Language} ^es [NC]
+    RewriteRule ^(.*) /es/$1 [L,R]
+
+</IfModule>
