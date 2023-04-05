@@ -4,7 +4,7 @@ class DB {
 
 	public function get_connection()
     {
-        require_once '../conf/db.php';
+        require_once PATH_RAIZ . '/conf/db.php';
 		$options = array(
 			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 		);

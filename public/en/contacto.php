@@ -1,6 +1,8 @@
 <?php
-include "../objects/DB.php";
-include "../objects/Message.php";
+define('PATH_RAIZ', implode(DIRECTORY_SEPARATOR, array_slice(explode(DIRECTORY_SEPARATOR, dirname(__FILE__)), 0, -2)));
+
+include PATH_RAIZ . "/objects/DB.php";
+include PATH_RAIZ . "/objects/Message.php";
 
 $data = array();
 $flgok = False;
@@ -30,7 +32,7 @@ if ($flgok) {
 }
 
 function verify_captcha() {
-	require_once '../conf/captcha.php';
+	require_once PATH_RAIZ . '/conf/captcha.php';
 	$url = "https://www.google.com/recaptcha/api/siteverify";
 	$data = array('secret' => $secret_key, 'response' => $_POST['g-recaptcha-response']);
 

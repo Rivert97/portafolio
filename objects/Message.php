@@ -2,7 +2,7 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-require_once "../vendor/autoload.php";
+require_once PATH_RAIZ . "/vendor/autoload.php";
 
 class Message {
 	private $name;
@@ -58,7 +58,7 @@ class Message {
 	}
 
 	public function send_email() {
-        require_once '../conf/mail.php';
+        require_once PATH_RAIZ . '/conf/mail.php';
 		$mail = new PHPMailer();
 		$mail->IsSMTP();
 		$mail->SMTPDebug = 0;
